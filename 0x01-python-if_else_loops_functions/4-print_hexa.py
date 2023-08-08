@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 """Print numbers in hex"""
-for i in range(0, 98):
-    print("{} = {}".format(i, hex(i)))
+for number in range(0, 98):
+    print("{} = {}".format(number, hex(number)))
