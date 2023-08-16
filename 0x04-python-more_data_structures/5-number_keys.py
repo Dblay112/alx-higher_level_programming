@@ -6,4 +6,4 @@ def number_keys(a_dictionary):
     for keys in a_dictionary:
         no_keys += 1
 
-    return no_keiys
+    return no_keys
