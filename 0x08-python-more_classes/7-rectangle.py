@@ -74,7 +74,9 @@ class Rectangle:
         """repr() should return a string representation of
         the rectangle to be able to recreate a new instance by using eval()
         """
-        return f"Rectangle({self.__width}, {self.__height})"
+        rec = "Rectangle(" + str(self.__width)
+        rec += ", " + str(self.__height) + ")"
+        return (rec)
 
     def __del__(self):
         """function to delete at instance"""
