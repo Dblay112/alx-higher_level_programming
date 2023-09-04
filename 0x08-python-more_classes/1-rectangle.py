@@ -22,7 +22,7 @@ class Rectangle:
         Returns:
         int: width of the rectangle
         """
-    return self._width
+        return self._width
 
     @width.setter
     def width(self, value):
