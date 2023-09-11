@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""12. My integer """
 
 
 class MyInt(int):
