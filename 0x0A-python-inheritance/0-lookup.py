@@ -12,15 +12,5 @@ def lookup(obj):
     Return:
     list of strings containing name of attribute
     """
-    attributes = []
-    methods = []
 
-    for name in dir(obj):
-        if name.startswith("__") and name.endswith("__"):
-            continue
-        if callable(getattr(obj, name)):
-            methods.append(name)
-        else:
-            attributes.append(name)
-
-    return methods + attributes
+    return dir(obj)
