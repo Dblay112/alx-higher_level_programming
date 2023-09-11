@@ -1,0 +1,20 @@
+Rectangle = __import__('9-rectangle').Rectangle
+
+
+class Square(Rectangle):
+    """
+    class square
+    """
+    def __init__(self, size):
+        """
+        initializer for class
+        """
+        super().integer_validator("size", size)
+        self.__size = size
+        super().__init__(size, size)
+
+    def area(self):
+        """
+        area method
+        """
+        return super().are
