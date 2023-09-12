@@ -10,4 +10,3 @@ def write_file(filename="", text=""):
         data = e.write(text)
 
     return data
-    
