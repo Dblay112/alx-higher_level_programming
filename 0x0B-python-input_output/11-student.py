@@ -27,5 +27,6 @@ def __init__(self, first_name, last_name, age):
         return j_dict
 
     def reload_from_json(self, json):
+        """function"""
         for i, value in json.items():
             setattr(self, i, value)
