@@ -23,8 +23,7 @@ def __init__(self, first_name, last_name, age):
         else:
             j_dict = {}
             for i in attrs:
-                if hasattr(self, i):
-                    j_dict[i] = getattr(self, i)
+                j_dict[i] = getattr(self, i)
         return j_dict
 
     def reload_from_json(self, json):
