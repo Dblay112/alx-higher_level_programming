@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Load, add, save"""
+
 import json
-"""json module imported"""
 import sys
-"""argument module"""
 
 
 def save_to_json_file(my_obj, filename):
@@ -15,11 +14,13 @@ def save_to_json_file(my_obj, filename):
         data = json.dumps(my_obj)
         e.write(data)
 
+
 def load_from_json_file(filename):
     """function that creates an Object from a “JSON file
     """
     with open(filename, "r", encoding="utf-8") as e:
         return json.load(e)
+
 
 def main():
     """main function to get arguments"""
