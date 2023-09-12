@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""Load, add, save """
+"""
+Load, add, save
+"""
 from sys import argv
 from os import path
-
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
 
-def main():
+def sum_items():
     """main code in function
     """
     filename = "add_item.json"
@@ -20,4 +21,4 @@ def main():
     save_to_json_file(arg_list, filename)
 
 
-main()
+sum_items()
