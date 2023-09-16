@@ -24,11 +24,12 @@ class Rectangle(Base):
         ValueError: If either of x or y < 0
         """
 
-        super().__init__(id)
         self.width = width
         self.height
         self.x = x
         self.y = y
+
+        super().__init__(id)
 
     @property
     def width(self):
@@ -100,8 +101,8 @@ class Rectangle(Base):
 
     def __str___(self):
         """string representation of rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height)
+        s = "[Rectangle] ({}) {}/{} - {}/{}"
+        s.format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """positional argument"""

@@ -5,7 +5,7 @@
 class Base:
     """1.Base Class"""
 
-    __n_objects = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """Initializes the base class.
