@@ -25,7 +25,7 @@ class Rectangle(Base):
         """
 
         self.width = width
-        self.height
+        self.height = height
         self.x = x
         self.y = y
 
@@ -39,9 +39,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
-            raise TypeError("value must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -101,41 +101,50 @@ class Rectangle(Base):
 
     def __str___(self):
         """string representation of rectangle"""
-        s = "[Rectangle] ({}) {}/{} - {}/{}"
-        s.format(self.id, self.x, self.y, self.width, self.height)
+        string = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
+        return string.format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """positional argument"""
-        if args is not None and len(args) > 0:
-            for i, arg in enumerate(args):
+        if args and len(args) != 0:
+            i = 0
+            for arg in args:
                 if i == 0:
-                    self.id = arg
-                if i == 1:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif i == 1:
                     self.width = arg
-                if i == 2:
+                elif i == 2:
                     self.height = arg
-                if i == 3:
+                elif i == 3:
                     self.x = arg
-                if i == 4:
+                elif i == 4:
                     self.y = arg
-        elif kwargs is not None:
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
                     self.id = value
-                if key == "width":
+                elif key == "width":
                     self.width = value
-                if key == "height":
+                elif key == "height":
                     self.height = value
-                if key == "x":
+                elif key == "x":
                     self.x = value
-                if key == "y":
+                elif key == "y":
                     self.y = value
 
     def to_dictionary(self):
+        """
+        returns dictionary representation
+        """
         return {
-                'id' = self.id,
-                'width' = self.width,
-                'height' = self.height,
-                'x' = self.x,
-                'y' = self.y
+                "id" : self.id,
+                "width" : self.width,
+                "height" : self.height,
+                "x" : self.x,
+                "y" : self.y
                 }

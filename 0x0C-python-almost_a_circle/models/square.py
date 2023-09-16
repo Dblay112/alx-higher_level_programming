@@ -25,15 +25,15 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         if args is not None and len(args) > 0:
-            for i in args:
+            for i, arg in enumerate(args):
                 if i == 0:
-                    self.id = i
+                    self.id = arg
                 if i == 1:
-                    self.size = i
+                    self.size = arg
                 if i == 2:
-                    self.x = i
+                    self.x = arg
                 if i == 3:
-                    self.y = i
+                    self.y = arg
         elif kwargs is not None:
             for key, value in kwargs.items():
                 if key == "id":
@@ -48,8 +48,8 @@ class Square(Rectangle):
     def to_dictionary(self):
         """return a dictionary"""
         return {
-                'id' = self.id,
-                'size' = self.size,
-                'x' = self.x,
-                'y' = self.y
-                }
+                "id" : self.id,
+                "size" : self.size,
+                "x" : self.x,
+                "y" : self.y
+        }

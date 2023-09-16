@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Base Class"""
 import json
-import turtle
 
 
 class Base:
@@ -15,7 +14,7 @@ class Base:
         Args:
             id (int) : The identity of the base class
         """
-        if id is None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -50,8 +49,17 @@ class Base:
         """
         that returns the list of the JSON string representation
         """
-        json_string = json.loads()
-        if json_string is None:
+        if json_string is None or json_string == "[]":
             return []
-        else:
-            return json_string
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        function that returns an instance with all
+        attributes already set
+        """
+        dinstance = cls(1, 1)
+        if dinstance is not None:
+            dinstance.update(**dictionary)
+        return dinstance
