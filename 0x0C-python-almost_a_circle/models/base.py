@@ -63,3 +63,14 @@ class Base:
         if dinstance is not None:
             dinstance.update(**dictionary)
         return dinstance
+
+    @classmethod
+    def load_from_file(cls):
+        """function that returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        newlist = []
+        with open(filename, 'r') as me:
+            newlist = cls.from_json_string(me.read())
+            for i, e in enumerate(newlist):
+                newlist[i] = cls.create(**newlist[i])
+        return newlist

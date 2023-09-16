@@ -28,7 +28,6 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-
         super().__init__(id)
 
     @property
@@ -99,10 +98,9 @@ class Rectangle(Base):
                 hashs += "#"
             print(hashs)
 
-    def __str___(self):
+    def __str__(self):
         """string representation of rectangle"""
-        string = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
-        return string.format(self.id, self.x, self.y, self.width, self.height)
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """positional argument"""
