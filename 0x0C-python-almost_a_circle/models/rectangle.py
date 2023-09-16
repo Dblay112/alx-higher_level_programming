@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """First Rectangle"""
 from models.base import Base
-"""module to import from"""
 
 
 class Rectangle(Base):
@@ -98,3 +97,8 @@ class Rectangle(Base):
             for j in range(0, self.width):
                 hashs += "#"
             print(hashs)
+
+    def __str___(self):
+        """string representation of rectangle"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height)
