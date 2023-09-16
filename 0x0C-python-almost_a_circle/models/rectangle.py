@@ -86,3 +86,15 @@ class Rectangle(Base):
     def area(self):
         """area of the rectangle"""
         return self.width * self.height
+
+    def display(self):
+        """print # to stdout"""
+        for line in range(0, self.y):
+            print()
+        for i in range(0, self.height):
+            hashs = ""
+            for curve in range(0, self.x):
+                hashs += " "
+            for j in range(0, self.width):
+                hashs += "#"
+            print(hashs)
