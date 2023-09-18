@@ -11,6 +11,7 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """Get/set the size of the Square."""
         return self.width
 
     @size.setter
@@ -24,6 +25,7 @@ class Square(Rectangle):
         return s.format(self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
+        """Update the Square"""
         if args is not None and len(args) > 0:
             for i, arg in enumerate(args):
                 if i == 0:
