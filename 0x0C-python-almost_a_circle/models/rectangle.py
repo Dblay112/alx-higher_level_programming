@@ -100,7 +100,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """string representation of rectangle"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """positional argument"""
@@ -139,10 +141,9 @@ class Rectangle(Base):
         """
         returns dictionary representation
         """
-        return {
-                "id" : self.id,
-                "width" : self.width,
-                "height" : self.height,
-                "x" : self.x,
-                "y" : self.y
+        return {"id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
                 }
