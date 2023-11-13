@@ -1,8 +1,2 @@
 #!/usr/bin/node
-const argNum = process.argv[2]
-if (!argNum) {
-	console.log('No Argument');
-}
-else {
-	console.log(argNum);
-}
+console.log(typeof process.argv[2] === 'undefined' ? 'No argument' : process.argv[2]);
