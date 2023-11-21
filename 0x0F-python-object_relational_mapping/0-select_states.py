@@ -2,34 +2,23 @@
 """
 modules imported
 """
-from sys import argv
+import sys
 import MySQLdb
 
 
-def main():
-    """
-    funtion to list all states from the specified database
-    """
-    db_user = argv[1]
-    db_password = argv[2]
-    db_db = argv[3]
-    db_host = "localhost"
-    db_port = 3306
-
-    try:
-        conn = MySQLdb.connect(host=db_host, port=db_port,
-                               user=db_user, passwd=db_password,
-                               db=db_db, charset="utf8")
-        cur = conn.cursor()
-        cur.execute("SELECT id, name FROM states ORDER BY id ASC")
-        query_rows = cur.fetchall()
-        for row in query_rows:
-            print(row)
-        cur.close()
-        conn.close()
-    except Exception:
-        pass
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    args = sys.argv
+    if len(args) < 4:
+        print("Usage: {} username password database_name".format(args[0]))
+        exit(1)
+    user = args[1]
+    password = args[2]
+    data = args[3]
+    db = MySQLdb.connect(host='localhost', user=user,
+                         passwd=password, db=data,
+                         port=3306)
+    cur = db.cursor()
+    num_rows = cur.execute("SELECT * FROM states ORDER BY states.id")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
