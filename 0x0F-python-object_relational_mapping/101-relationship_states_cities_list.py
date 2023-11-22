@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""modules
-"""
+# Lists all States and corresponding Cities in the database hbtn_0e_101_usa.
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
