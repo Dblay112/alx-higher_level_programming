@@ -1,28 +1,14 @@
 #!/usr/bin/python3
-"""script that takes in an argument and displays all values
+"""modules
 """
-import MySQLdb
+
 import sys
+import MySQLdb
 
-
-if __name__ == '__main__':
-    args = sys.argv
-    if len(args) < 5:
-        print("Usage: {} username password db_name state_name".format(args[0]))
-        exit(1)
-    username = args[1]
-    password = args[2]
-    data = args[3]
-    state_name = args[4]
-    db = MySQLdb.connect(host='localhost', user=username,
-                         passwd=password, db=data,
-                         port=3306)
-    cur = db.cursor()
-    data_rows = cur.execute('''
-            SELECT * FROM states
-            WHERE states.name = '{}'
-            ORDER BY states.id
-            '''.format(state_name))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+if __name__ == "__main__":
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT * \
+                 FROM `states` \
+                WHERE BINARY `name` = '{}'".format(sys.argv[4]))
+    [print(state) for state in c.fetchall()]
