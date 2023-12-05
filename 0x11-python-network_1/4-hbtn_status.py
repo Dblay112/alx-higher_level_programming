@@ -2,8 +2,9 @@
 """Fetches https://alx-intranet.hbtn.io/status"""
 import requests
 
+
 if __name__ == "__main__":
-    r = requests.get("https://intranet.hbtn.io/status")
-    print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    url = "https://alx-intranet.hbtn.io/status"
+    text = requests.get(url).text
+    rtr_str = 'Body response:\n\t- type: {}\n\t- content: {}'
+    print(rtr_str.format(type(text), text))
